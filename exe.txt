@@ -69,3 +69,107 @@ s.eip - s = b8
 7C7E0735 
 00150640
 004028FD
+
+GetProcAddress() - kernel32.dll-ResumeThread -> 7C802997
+
+GetProcAddress() - kernel32.dll-Sleep -> 7C7D2446
+
+Sleep() <- 10000.m
+ResumeThread = 000000F4
+ExitProcess() <- null
+
+
+
+# New Thread
+GetModuleHandleW() <- null -> 00400000
+DS:[42E45C] = 00400000 
+
+GetModuleFileNameW() <- hModule = NULL, buffer = 0042E788, Count = 104h -> 반환값 A8, buffer = C:\Documents and Settings\dd\바탕 화면\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913.exe
+
+PathFindFileNameW() <- C:\Documents and Settings\dd\바탕 화면\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913.exe -> 0042E850, a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913.exe
+
+StrCpyNW() <- Dest = 0042E460, Src = C:\Documents and Settings\dd\바탕 화면\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913.exe, Count = 65h
+-> 42E460 = C:\Documents and Settings\dd\바탕 화면\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913\
+
+IsBadReadPtr() <- 414c20, size = Ah -> 0
+IsBadReadPtr() <- 414c30, size = 1587dh -> 0 
+
+GetLastError() -> 51D
+DS:[12FDD0] = 51D
+
+GetCurrentProcessId() -> 2E4
+DS:[42F148] = 2E4
+
+GetCurrentProcessId() -> 2E4
+DS:[42F148] = 2E4
+
+HeapCreate <- 0, 0, 0 -> 970000
+DS:[42ECE4] = 970000
+
+HeapSetInformation() <- 4, 12FDC4, 0, 970000
+힙핸들 = 970000
+-> 1
+
+GetCurrentProcessId() -> 2E4
+DS:[42F148] = 2E4
+
+HeapAlloc() <- Heap = 970000, Flags = 0, Size = 1588Ch -> 980690
+
+memset() <- 995F15, 0, 3 
+SetLastError() <- 51D
+
+# SetLastError()에 값을 설정후, GetLastError() 값과 같으면 Debug로 판단되어짐. (Anti Debug)
+
+IsBadReadPtr() <- 414C20, Ah -> 0
+IsBadReadPtr() <- 414C30, 1587D -> 0
+
+IsBadWritePtr() <- 980698, 1587D -> 0
+IsBadStringPtrA() <- 980698, 1587D -> 980698은 Setting.txt가 담겨져있음.
+
+IsBadWritePtr() <- 12F10, 4 -> 0
+
+GetCurrentProcessId() -> 2E4
+DS:[42F180] = 2E4
+GetCurrentProcessId() -> 2E4
+DS:[42f180] = 2E4
+
+TlsAlloc() -> B
+DS:[42F17C] = B
+GetCurrentProcessId() -> 2E4
+DS:[42F180] = 2E4
+GetCurrentProcessId() -> 2E4
+DS:[42F180] = 2E4
+
+GetLastError() -> 51D
+SS:[12FdCC] = 51D
+GetCurrentProcessId() -> 2E4
+DS:[42F148] = 2E4
+
+HeapAlloc() <- Heap = 970000, Flags = 8(Heap_zero_memory), size = 64 -> 9966A8
+
+SetLastError() <- 51D
+
+IsBadStringPtrA() <- String = 412894, Maxlen = 4 -> 0
+
+MOV ESI, DWORD PTR DS:[GetCurrentProcessId]
+CALL ESI
+
+GetCurrentProcessId() -> 2E4
+DS:[42F16C] = 2E4
+
+GetLastError() -> 51D
+SS:[12F824] = 51D
+
+IsBadWritePtr() <- Addr = 42F14C, 20h -> 0
+
+GetCurrentProcessId() <- 2E4
+InitializeCriticalSection() <- 42F154 -> 0
+GetCurrentProcessId() -> 2E4
+DS:[42F14C] = 2E4
+
+SetLastError() <- 51D 
+
+GetCurrentProcessId() -> 2E4
+DS:[42F16C] = 2E4
+
+IsBadReadPtr() <- Addr = 412894, Size = 4h
