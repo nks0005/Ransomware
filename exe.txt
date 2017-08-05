@@ -1,0 +1,71 @@
+Thiophene.sed Handle : DC
+SS:[0012F2D8] = Thiophene.sed Handle
+GetFileSize() -> 2F54C
+GlobalAlloc() -< 2F54C 만큼 -> 167F48
+
+ReadFile() -> 버퍼 167F48에 2F54C만큼 데이터를 복사(Thiophene.sed 파일을 읽음)
+
+GlobalAlloc() -> 286만큼 -> 1974B0
+GlobalAlloc() -> 30만큼 -> 1975E8
+
+GetProcAddress() -> Kernel32.dll-ExitProcess -> 7C7EBFA2
+GetProcAddress() -> Kernel32.dll-LocalAlloc -> 7C7D9A2D
+GetProcAddress() -> kernel32.dll-lstrlenA -> 7C7DBE56
+GetProcAddress() -> kernel32.dll-GetCommandLineA -> 7C7E0C6D
+
+GlobalAlloc() -> 16만큼 -> 162A88
+LocalAlloc() -> 68만큼 -> 197A80
+GetProcAddress() -> kernel32.dll-CreateProcessA -> 7C7D236B 
+
+GetCommandLineA() -> 151EE0
+CreateProcessA() -> GetCommandLineA()에서 얻은 값의 프로그램을 CREATE_SUSPENDED 플래그로 생성 -> EAX = 1
+
+GetProcAddress() -> kernel32.dll-VirtualAllocEx -> 7C7D9B12
+GetProcAddress() -> kernel32.dll-VirtualAlloc -> 7C7D9AF1
+
+VirtualAlloc() -> 4바이트만큼, MEM_COMMIT, PAGE_READWRIT -> A20000
+
+GetProcAddress() -> kernel32.dll-GetThreadContext -> 7C8097AD
+GetThreadContext() <- hThread = F4, pContext = A20000 -> EAX = 1
+GetProcAddress() -> kernel32.dll-ReadProcessMemory -> 7C7D21D0
+
+ReadProcessMemory() <- hProcess = F0, BaseAddress = 7FFDF008, Buffer = 12F328, Size = 4 -> Buffer에 00400000 값이 들어감.
+
+GetModuleHandleA() -< ntdll.dll -> 7C930000
+GetProcAddress() <- ntdll.dll-NtUnmapViewOfSection -> 
+
+NtUnmapViewOfSection() -> Arg1 = 0F0, Arg2 = 00400000 
+
+VirtualAllocEx() -> hProcess = F0, Address = 00400000, Size = 200704 -> 00400000
+
+GetProcAddress() -> kernel32.dll-WriteProcessMemory -> 7C7D2213
+
+WriteProcessMemory() -> buffer = 169CD1, SIze = 400(1024) -> 이때 169CD1버퍼에는 PE헤더가 있다.
+
+WriteProcessMemory() -> buffer = 1966D1, Size = 200h
+WriteProcessMemory() -> buffer = 17C2D1, Size = 1A400h
+WriteProcessMemory() -> buffer = 1794D1, Size = 11776h
+WriteProcessMemory() -> buffer = 16A0D1, Size = F400h
+WriteProcessMemory() -> buffer = 12F30C, Size = 4, 이 버퍼에는 00400000 값이 있다.
+
+GetProcAddress() <- kernel32.dll-SetThreadContext
+
+SetThreadContext() -< A20000
+
+#include <stdio.h>
+#include <Windows.h>
+
+int main(void)
+{
+	CONTEXT s;
+	printf("%x\n", &s);
+	printf("%x\n", &s.Eip);
+
+	return 0;
+}
+s.eip - s = b8
+
+
+7C7E0735 
+00150640
+004028FD
