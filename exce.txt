@@ -509,3 +509,71 @@ Process32NextW()
 GetHandleInformation() <- handle = 114, flag = 12EEB0
 
 CloseHandle() <- 114
+
+RtlGetNativeSystemInformation() <- 5, 9E2850, 8000, 0
+
+VIrtualAlloc() <- 0, 8h, 3000, 4
+VirtualProtect() <- DF0000, 8h, 104, 12F0B8
+
+ZwOpenProcess() <- 12F0C0, 1, 12F0A0, DF0000
+
+OpenProcess() Wmic.exe를 염 -> 114
+TerminateProcess() Wmic.exe
+
+GetHandleInformation() <- 114
+CloseHandle() <- 114
+=> Handle이 존재하는지 확인 후 종료
+
+HeapReAlloc() <- 970000, 8h, 9AF828, 18h -> 9AF848
+
+WriteFile() <- 10C, 9AF850(exit), 6h, 12F51C, 0
+=> 10C는 CMD로 추정
+
+GetHandleInformation() <- 118
+CloseHandle() <- 118
+
+GetHandleInformation() <- 11C
+CloseHandle() <- 11C
+
+GetHandleInformation() <- 108
+CloseHandle() <- 108
+
+
+GetHandleInformation() <- B4
+CloseHandle() <- B4
+
+GetHandleInformation() <- b0
+
+GetHandleInformation() <- 10C
+
+lstrcmpi() <- encrypt
+lstrlen() <- files
+
+HeapAlloc() 9af868
+
+lstrlen() <- .accdb
+.mdb
+
+
+
+
+lstrlen() <- 9F6850 [ReadMe 파일]
+-> EBD5 크기
+...
+lstrlen() <- ffoqr3ug7m726zou
+
+
+DCE7-DF9D-D750-008C-107A
+
+
+...
+
+RegOpenKeyExW() <- hKey = HKEY_CURRENT_USER, SubKey = Software\Microsoft\Windows\CurrentVersion\Policies\Explorer 
+
+RegQueryValueExW() <- HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer
+, Name = NoDrives 
+
+
+GetDriveTypeW() <= C: -> 3
+
+QueryDosDeviceW() 
