@@ -422,3 +422,90 @@ GetTickCount() -> 21D4D8C
 
 CryptAcquireContextW() <- 12FA10, 0, 0, 1, F0000040
 CryptGenRandom() <- 161FE0, 38h, 9D9298
+
+
+
+GetKeyboardLayoutList() 
+
+GetFileVersionInfoSizeA() <- kernel32.dll -> 744
+
+inet_addr() <- 194.165.16.0
+htons() <- 1AEC
+socket() <- 2,2,11
+
+sendto() <- B0, A68248(hi008c1030), A, 0, 12F9F8, 1
+sendto() <- 위와 같음
+sendto()sendto() + 20
+
+PeekMessageW() 
+WaitForSingleObject() <- 7C
+
+sendto()
+PeekMessageW() 
+WaitForSingleObject() <- 7C
+x4
+
+sendto()
+peekmessagew()
+
+sendto()
+WaitForSingleObject
+
+sendto()
+...
+
+
+Sleep() <- 1000ms
+sendto()
+Sleep() <- 1000mss
+sendto()
+Sleep() <- 1000ms
+sendto()
+...
+
+shutdown <- B0, 2
+closesocket() <- B0
+
+GetModuelHandleA() <- kernel32.dll
+GetProcAddress() <_ kernel32.dll-IsWow64Process
+
+GetSystemDirectoryA() <- buffer = 12F938 -> C:\Windows\system32
+
+C:\WINDOWS\system32\wbem\wmic.exe
+
+InitializeSecurityDescriptor() <- 12E7C4, 1
+
+CreatePipe() <- phReadPipe = 12F7F8, phWritePipe = 12F804, pSecurity = 12E7BC, Size = 0 -> 1
+
+CreatePipe() <- phReadPipe = 12F800, phWritePipe = 0012F7FC, pSecurity = 0012F7EC, Size = 0 - > 1
+
+
+
+GetSystemDirectoryA() 
+
+wsprintfA()를 통해 %s\cmd.exe -> %s에 GetSystemDirectoryA()를 통해 얻은 값을 넣음
+즉, C:\Windows\system32\cmd.exe
+
+
+CreateProcessA() <- cmd.exe, Flag = Create_New_Console, CommandLine = null, 
+
+
+lstrlen() <- C:\WINDOWS\system32\wbem\wmic.exe
+
+12
+
+WriteFile() <- 10c, 9d91a8 = C:\Windows\system32\wbem\wmic.exe shadowcopy delete
+
+PathFindFileNameA() <- C:\WINDOWS\system32\wbem\wmic.exe
+
+12f849 = wmic.exe
+
+Process32FirstW() <- 114, 12EEc4
+StrStrIW() <- wmic.exe
+Process32NextW()
+
+-> 이 절차를 통해 wmic.exe프로그램이 실행되었는지 확인하는듯.
+
+GetHandleInformation() <- handle = 114, flag = 12EEB0
+
+CloseHandle() <- 114
