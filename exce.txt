@@ -575,5 +575,268 @@ RegQueryValueExW() <- HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersio
 
 
 GetDriveTypeW() <= C: -> 3
+		
+QueryDosDeviceW()  <= C:, 12F5D0, 208 -> \Device\HarddiskVolume1
 
-QueryDosDeviceW() 
+PathCombineW() <- Dest = 12F5B8, Dir = 12FA34(C:), File = "*
+
+
+
+FindFirstFileW() <- FileName = "C:\*", pFindData = 0012F364		
+
+
+WaitForSingleObject() <- 7C, Timeout = null
+
+
+PathMatchSpecW() <- Path = C:\*, Spec = *:\documents and settings\all users\documents\*
+-> 
+==> 다른 파일 경로를 많이 비교하면서 이 경로가 해당 경로가 맞는지 비교..
+
+FindNextFileW() <- hFindfile = 00167460, pFinddata = 0012F364
+PathMatchSpecW() 
+... 반복후
+
+PathCombineW() <- C:\Documents and Settings, File = *
+-> C:\Documents and Settings\*
+FindFirstFileW() 
+... 반복
+
+-- 파일 처리같음
+
+WNetOpenENumW() <- 2, 1, 13, 0, 12F9D4- > 0
+[네트워크 드라이버 탐색하는거같음]
+
+WNetEnumResourceW() <- 16E110, 12F9D8, 0AB82F0, 12F9D0
+
+WNetOpenEnumW() <- 2, 1, 13, AB82F0, 12F9A8
+
+..
+CreateWellKnownSid() <- 1A, 0, 12F5C8, 12F614 -> 자신을 관리자 권한 상승
+
+CheckTokenMembership() <- 현재 로그인한 계쩡이 관리자 그룹에 속해있는가?
+
+GetHandleInformation()
+CloseHandle()
+GetHandleInformation()
+CloseHandle()
+
+194.165.16.0::22
+
+
+htonl = FFFFFC00 = -40
+inet_addr = 194.165.16.0
+htons = 1AEC
+
+socket() <- 2,2, 11
+
+sendto() <- 138, 983550, 18, 12F9F8, 10
+dce7df9dd750008c1501101a
+x ...
+
+
+sleep(1000ms)
+x5
+
+
+shutdown <- 138, 2
+
+closesocket() 
+
+		
+
+
+
+
+
+
+
+GetLastError()
+InitializeCriticalSection()
+GetCurrentProcessId()
+SetLastError()
+
+Init
+
+msftesql.exe
+sqlagent.exe
+sqlbrowser.exe
+sqlwriter.exe
+oracle.exe
+ocssd.exe
+dbsnmp.exe
+synctime.exe
+mydesktopqos.exe
+agntsvc.exeisqlplussvc.exe
+xfssvccon.exe
+mydesktopservice.exe
+ocautoupds.exe
+agntsvc.exeagntsvc.exe
+agntsvc.exeencsvc.exe
+firefoxconfig.exe
+tbirdconfig.exe
+ocomm.exe
+mysqld.exe
+mysqld-nt.exe
+mysqld-opt.exe
+dbeng50.exe
+sqbcoreservice.exe
+
+sleep 3000ms
+
+GetSystemInfo()
+
+CreateEvent
+CreateThread() <- 0, 0, 401153, 0, 0, 0 -> 140
+
+Ollydbg Error
+
+CreateThread() <- 0, 0, 40A02E, 9F6768(CPU Dump
+Address   Hex dump                                         ASCII
+009F6768  C5 17 40 00|F0 F9 12 00|                         A@ ðu
+), 0, 0
+-> 144
+
+
+CreateThread() <- 
+
+EnterCriticalSection() <- 0012F9Fc
+
+C:\Documents and Settings\dd\Cookies\index.dat
+
+
+
+
+
+CreatFile()
+SetFilePointerEX()
+ReadFile()
+
+CryptAcquireContextW
+CryptGenRandom
+CryptReleaseContext
+
+SetFilePointerEX()
+WriteFile
+CloseFile
+
+
+
+
+CreateFileW
+GetFileSizeEx
+memset() <- 169F65A, 0, 206h 
+GetCurrentProcessId() -> 2E4
+
+SetFilePointerEx() <- 150, 200, 0, 0, 0
+ReadFile()
+
+lstrlenW() 파일명
+
+CryptAcquireContextW() <- 169F634, 0, 0, 1, F0000040
+CryptGenRandom()
+CryptReleaseContext() 
+
+
+...
+
+
+바탕화면 바꾸기 -> Readme 띄우기 -> taskkill /f /im "a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913.exe" > NUL & ping -n 1 127.0.0.1 > NUL & del "C:\Documents and Settings\dd\?? ??\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913.exe" > NUL && exit
+
+cmd.exe 실행
+
+저 문장 실행 및 자기 종료
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 처음부터 분석시작
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GetModuleHandleA() <- SHFOLDER
+LoadLibarary() <- SHFOLDER
+GetProcAddress() <- SHFOLDER-SHGetFolderPathA()
+-> 7673145D
+
+SHGetFileInfo() <- 42A060, 0, 12FE64, 160h, 0
+GetCommandLineA() -> "C:\Documents and Settings\dd\¹UAA E­¸e\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913.exe"
+
+GetModuleHandleA(Null) -> 00400000
+GetTempPathA() -> C:\DOCUME~1\dd\LOCALS~1\Temp\
+CreateDirectoryA() <- ...Temp\
+
+GetTempFileNameA() <- ...Temp\, "nsp", 0, 437000
+nsp5.tmp 파일이 생성되어짐
+
+DeleteFileA() <- nsp5.tmp
+
+GetModuleFileNameA() <- hModule = NULL, Buffer = 437C00, Count = 400h -> C:\Documents and Settings\dd\¹UAA E­¸e\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913.exe
+
+GetFileAttributesA() <- C:\Documents and Settings\dd\¹UAA E­¸e\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913.exe -> 20
+
+CreateFileA() <- C:\Documents and Settings\dd\¹UAA E­¸e\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913.exe, 0, 1, 0, 3, 20, 0 -> D4
+
+
+CharPrevA() <- *.exe 파일 추출
+
+GetFileSize() <- hFile = D4
+
+
+ReadFile() <- hFile = D4, Buffer = 421C58, 200, 12FDE0, 0
+
+ReadFile() <- D4, 421C58, 200, 12FDE0
+
+ReadFile() <- D4, 421C58, 200, 12FDE0, 0
+200
+200
+200
+200
+200
+200
+200
+200
