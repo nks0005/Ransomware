@@ -840,3 +840,162 @@ ReadFile() <- D4, 421C58, 200, 12FDE0, 0
 200
 200
 200
+...
+
+
+ReadFile() <- D4, 421C58, 8000h, 12FDE0, 0
+
+GUI 생성 -> Verifying installer 0% ~ 100%
+
+
+
+kernel32.dll -> GetUserDefaultUILanguage() -> 412
+wsprintfA() <- nse6.tmp 파일에 412h를 %d로 저장
+LoadImageA() <- 00400000
+
+
+SetCurrentDirectoryA() <- ...Temp()
+
+GetFileAttributesA() <- Temp\Thiophene.sed
+CreateFile() <- Thiophene.sed
+
+ReadFile()
+WriteFile() <- 암호화된 데이터
+SetFileTime() 
+
+
+subconsciousness.bil
+GetFileAttributesA()를 하고
+CreateFile
+-> C
+Write
+SetFileTime
+CloseHandle
+
+GetFileAttributesA() <- subconsciousness.bil
+
+CreateFileA() <- subconsciousness.bil , Read
+ReadFile -> BgWorker::Vertebrate() 라는 값이 나옴
+
+
+GetFileAttributesA() <- BgWorker.dll
+CreateFileA()_WriteMode -> F8
+<- 
+
+SetTime
+Close
+
+DeleteFile() nsh6.tmp
+
+CreateDirectory() <- nsh6.tmp
+
+GetFileAttributesA() <- nsh6.tmp\System.dll
+
+CreateFile() <- System.dll 
+ReadFile
+ReadFile
+WriteFile
+CloseHandle
+
+
+
+GetModuleHandle() <- System.dll
+
+LoadLibraryExA() <- System.dll
+
+GetProcAddress() <- System.dll_Call
+
+
+Call System.dll(Call)
+GetModuleHandleA() <- BgWorker
+LoadLibrary() <- BgWorker
+
+BgWorker
+
+GetProcAddress() <- ExitProcess
+GetProcAddress() <- LocalAlloc
+GetProcAddress() <- lstrlenA
+... <- GetCommandLineA
+... GlobalAlloc
+... LocalAlloc
+... CreateProcessA()
+
+GetCommandLineA() -> "C:\Documents and Settings\dd\¹UAA E­¸e\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913.exe"
+
+
+CreateProcessA() <- 0, "C:\Documents and Settings\dd\¹UAA E­¸e\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913.exe", 0, 0, 0, 4(CREATE_SUSPENDED), 0, 0, 12F3C8, 12F32C -> 1
+
+GetProcAddress() <- VirtualAllocEx
+GetProcAddress() <- VIrtualAlloc
+
+VirtualAlloc() <- 0, 4, 1000h, 4 -> BB0000
+
+GetProcAddress() <- GetThreadContext
+... <- ReadProcessMemory
+
+ReadProcessMemory() <- hProcess = 108, BaseAddress = 7FFD8008, Buffer = 12F328, Size = 4, pByteWritten = NULL;
+
+GetModuleHandleA() <- ntdll.dll
+GetProcAddress() <- NtUnmapViewOfSection
+
+VirtualAllocEx() <- hProcess 108, Address = 400000, Size = 31000h, AllocType = MEM_COMMIT|MEM_RESERVE, Protect = PAGE_EXECUTE_READWRITE
+
+
+
+GetProcAddress() <- WriteProcessMemory
+
+WriteProcessMemory() <- hProcess = 108, 400000, 12E649h, 400h, 0
+write
+write
+...
+
+
+GetProcAddress() <- SetThreadContext
+SetThreadContext() <- 10C, BB0000
+EIP = 004028FD
+GetProcAddress() <- ResumeThread
+... <- Sleep
+Sleep(10000ms)
+ResumeThread()
+
+
+
+----
+
+GetModuleHandleW() <- NULL
+GetModuleFileNameW() <- null, 42e788, 104h ->
+C:\Documents and Settings\dd\바탕 화면\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913.exe
+
+
+PathFindFileNameW() <- C:\Documents and Settings\dd\바탕 화면\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913\a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913.exe
+->a31eb55003834823679085184dbdc0946ffd0037567bd2c088d16e6e95b0d913.exe
+
+
+
+
+
+
+
+
+
+414c10
+
+Use Memory access violations (Anti-debug)
+
+GetCurrentProcessId() 처음
+GetCurrentProcessid() <- 42F148와 비교함
+
+GetTickCount()
+
+SetLastError
+
+GetLastError
+
+
+
+
+
+
+
+
+
