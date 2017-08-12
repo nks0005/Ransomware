@@ -992,6 +992,32 @@ SetLastError
 GetLastError
 
 
+...
+
+
+CreateFileW() 자기자신 -> 58
+CreateFileMappingW() <- 58 -> 68
+MapViewOfFile() <- 68 -> AD0000
+
+GetFileSize() <- 58 -> 44028h
+
+SetFilePointer() <- 58, 44023h
+ReadFile() <- 58, 12FDDC, 5 -> hex:25 51 C8 29 F6
+
+
+SetFilePointer() <- 58, 4401E
+ReadFile() <- 58, 12FDD4, 5 -> 13 BB 5A 6E 65
+
+
+
+lstrlenA() <- [crbr]
+
+Reg 파일을 읽고, 첫 문자열을 탬프 폴더에 파일명으로 만든다.
+
+
+
+
+
 
 
 
