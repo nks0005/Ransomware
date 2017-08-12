@@ -1,0 +1,6 @@
+CryptAcquireContext를 통해 Crystographic Service Provider 핸들 얻기
+CryptBinaryToStringA() <- base64 인코딩 및 디코딩
+-> Base64로 인코딩
+
+CryptStringToCrypto
+-> Base64를 디코딩
